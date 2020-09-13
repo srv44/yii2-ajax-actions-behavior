@@ -1,0 +1,40 @@
+{
+  "name": "srv44/yii2-ajax-actions-behavior",
+  "description": "Behavior auto set JSON response to actions for Yii2 Framework.",
+  "type": "yii2-extension",
+  "keywords": ["yii2", "yii 2", "json", "ajax", "behavior"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aleksey Serov",
+      "email": "srv.aleksey@gmail.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/srv44/yii2-ajax-actions-behavior/issues?state=open",
+    "source": "https://github.com/srv44/yii2-ajax-actions-behavior"
+  },
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": "~2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "6.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "srv44\\AjaxActions\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "srv44\\AjaxActions\\tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "asset-installer-paths": {
+      "npm-asset-library": "vendor/npm",
+      "bower-asset-library": "vendor/bower"
+    }
+  }
+}
