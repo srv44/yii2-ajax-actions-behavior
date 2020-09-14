@@ -65,6 +65,11 @@ class AjaxActionsBehaviorTest extends TestCase
         $event->result = 'test';
         
         $behavior = new AjaxActionsBehavior();
+        // check for not ajax action
+        $behavior->afterAction($event);
+    
+        $action = new Action('ajax-test', $controller);
+        $event = new ActionEvent($action);
         try {
             $behavior->afterAction($event);
             self::fail('Expected Exception');

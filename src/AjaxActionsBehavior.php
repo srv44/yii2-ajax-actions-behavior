@@ -38,7 +38,7 @@ class AjaxActionsBehavior extends Behavior
      */
     public function beforeAction($event)
     {
-        if (preg_match('/^ajax-.+$/', $event->action->id) > 0) {
+        if ($this->actionNameIsAjax($event->action->id)) {
             Yii::$app->response->format = Response::FORMAT_JSON;
         }
     }
@@ -48,6 +48,10 @@ class AjaxActionsBehavior extends Behavior
      */
     public function afterAction($event)
     {
+        if (!$this->actionNameIsAjax($event->action->id)) {
+            return;
+        }
+        
         $result = $event->result;
         
         if (!is_array($result)) {
@@ -57,5 +61,14 @@ class AjaxActionsBehavior extends Behavior
         if (!isset($result['success'])) {
             throw new RuntimeException('Bad response format! "success" field required!');
         }
+    }
+    
+    /**
+     * @param $actionName
+     * @return bool
+     */
+    private function actionNameIsAjax($actionName)
+    {
+        return preg_match('/^ajax-.+$/', $actionName) === 1;
     }
 }
