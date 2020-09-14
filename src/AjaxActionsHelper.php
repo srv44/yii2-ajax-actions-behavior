@@ -14,7 +14,8 @@ class AjaxActionsHelper
      */
     public static function result($success, $params = [])
     {
-        return array_merge($params, ['success' => $success]);
+        unset($params['success']);
+        return array_merge(['success' => $success], $params);
     }
     
     /**
