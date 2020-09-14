@@ -12,7 +12,7 @@ class AjaxActionsHelper
      * @param array $params
      * @return array
      */
-    public static function ajaxResult($success, $params = [])
+    public static function result($success, $params = [])
     {
         return array_merge($params, ['success' => $success]);
     }
@@ -23,17 +23,17 @@ class AjaxActionsHelper
      * @param string $errorMsgKey
      * @return array
      */
-    public static function ajaxError($errorMsg, $params = [], $errorMsgKey = 'errorMessage')
+    public static function error($errorMsg = 'Error!', $params = [], $errorMsgKey = 'errorMessage')
     {
-        return self::ajaxResult(false, array_merge($params, [(!empty($errorMsgKey) ? $errorMsgKey : 'errorMessage') => !empty($errorMsg) ? $errorMsg : 'Error!']));
+        return self::result(false, array_merge($params, [(!empty($errorMsgKey) ? $errorMsgKey : 'errorMessage') => !empty($errorMsg) ? $errorMsg : 'Error!']));
     }
     
     /**
      * @param array $params
      * @return array
      */
-    public static function ajaxSuccess($params = [])
+    public static function success($params = [])
     {
-        return self::ajaxResult(true, $params);
+        return self::result(true, $params);
     }
 }
