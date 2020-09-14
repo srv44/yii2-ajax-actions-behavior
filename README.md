@@ -9,8 +9,14 @@ Simple yii2 behavior, what auto set JSON response format to actions.
 Run in your terminal
 
 ```bash
-> composer require srv44/yii2-ajax-actions-behavior ^1.0
+composer require srv44/yii2-ajax-actions-behavior ^1.0
 ```
+
+Or add
+```
+"srv44/yii2-ajax-actions-behavior" : "^1.0"
+```
+to the require section of your application's composer.json file.
 
 ### Usage
 
@@ -175,7 +181,7 @@ public function actionAjaxWithCustomErrorField()
 PhpUnit /tests
 
 ```bash
-> vendor/bin/phpunit
+vendor/bin/phpunit
 ``` 
 
 ## License
